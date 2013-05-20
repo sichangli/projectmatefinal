@@ -12,7 +12,15 @@ public class Task {
 	private String desc;
 	private String taskId;
 	private Date deadline;
+	private ArrayList<User> userList;
 	
+	
+	public ArrayList<User> getUserList() {
+		return userList;
+	}
+	public void setUserList(ArrayList<User> userList) {
+		this.userList = userList;
+	}
 	public String getTitle() {
 		/*title for project*/
 		return title;

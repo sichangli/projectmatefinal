@@ -19,15 +19,17 @@ import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
-public class GetCompletedProjects extends HttpServlet {
+public class ShowPendingInv extends HttpServlet {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8594639522382622258L;
+	private static final long serialVersionUID = 312487455862396939L;
 
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
 		resp.setContentType("application/json");
 		PrintWriter out = resp.getWriter();
 		String userId = req.getParameter("userId");
@@ -35,8 +37,8 @@ public class GetCompletedProjects extends HttpServlet {
 		JSONObject result = new JSONObject();
 		
 		JSONArray arr = new JSONArray();
-		ArrayList<Project> completeds = ds.getCompletedProjects(userId);
-		for (Project p : completeds) {
+		ArrayList<Project> pendings = ds.showPendingInvitation(userId);
+		for (Project p : pendings) {
 			JSONObject r = new JSONObject();
 			try {
 				r.put("proid", p.getProid());
@@ -71,7 +73,7 @@ public class GetCompletedProjects extends HttpServlet {
 			}
 		}
 		try {
-			result.put("completeds", arr);
+			result.put("pendings", arr);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

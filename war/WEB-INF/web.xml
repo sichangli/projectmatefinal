@@ -86,4 +86,94 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
         <url-pattern>/getfavorites</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>listusertasks</servlet-name>
+        <servlet-class>projectmate.backend.servlets.ListUserTasks</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>listusertasks</servlet-name>
+        <url-pattern>/listusertasks</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>editProject</servlet-name>
+        <servlet-class>projectmate.backend.servlets.EditProject</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editProject</servlet-name>
+        <url-pattern>/editProject</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>editTask</servlet-name>
+        <servlet-class>projectmate.backend.servlets.EditTask</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editTask</servlet-name>
+        <url-pattern>/editTask</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>checkuser</servlet-name>
+        <servlet-class>projectmate.backend.servlets.CheckUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkuser</servlet-name>
+        <url-pattern>/checkuser</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>confirminv</servlet-name>
+        <servlet-class>projectmate.backend.servlets.ConfirmInv</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>confirminv</servlet-name>
+        <url-pattern>/confirminv</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>declineinv</servlet-name>
+        <servlet-class>projectmate.backend.servlets.DeclineInv</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>declineinv</servlet-name>
+        <url-pattern>/declineinv</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>showpendinginv</servlet-name>
+        <servlet-class>projectmate.backend.servlets.ShowPendingInv</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showpendinginv</servlet-name>
+        <url-pattern>/showpendinginv</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>addfavorite</servlet-name>
+        <servlet-class>projectmate.backend.servlets.AddFavorite</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addfavorite</servlet-name>
+        <url-pattern>/addfavorite</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>addcomplete</servlet-name>
+        <servlet-class>projectmate.backend.servlets.AddComplete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addcomplete</servlet-name>
+        <url-pattern>/addcomplete</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>listprojecttasks</servlet-name>
+        <servlet-class>projectmate.backend.servlets.ListProjectTasks</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>listprojecttasks</servlet-name>
+        <url-pattern>/listprojecttasks</url-pattern>
+    </servlet-mapping>
+    
 </web-app>

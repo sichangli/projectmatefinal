@@ -2,6 +2,8 @@ package projectmate.backend.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -32,6 +34,13 @@ public class GetFavoriteProjects extends HttpServlet {
 		Datastore ds = new Datastore();
 		JSONObject result = new JSONObject();
 		
+//		try {
+//			result.put("result", ds.getFavoriteProjects(userId).size());
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		JSONArray arr = new JSONArray();
 		ArrayList<Project> favorites = ds.getFavoriteProjects(userId);
 		for (Project p : favorites) {
@@ -40,9 +49,15 @@ public class GetFavoriteProjects extends HttpServlet {
 				r.put("proid", p.getProid());
 				r.put("title", p.getTitle());
 				r.put("status", p.getStatus());
-				r.put("deadline", p.getDeadline());
+				DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy - HH:mm:ss");
+				r.put("deadline", formatter.format(p.getDeadline()));
 				r.put("descr", p.getDescr());
 				r.put("owner", p.getOwner());
+				
+				User ut = ds.getUserFromId(p.getOwner());
+				r.put("lastName", ut.getLastName());
+				r.put("firstName", ut.getFirstName());
+				r.put("sex", ut.getSex());
 				
 				JSONArray members = new JSONArray();
 				ArrayList<User> userlist = p.getUserlist();

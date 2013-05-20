@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -34,7 +35,7 @@ public class CreateProject extends HttpServlet {
 		String desc = req.getParameter("descr");
 		String title = req.getParameter("title");
 		@SuppressWarnings("deprecation")
-		DateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+		DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy - HH:mm:ss");
 		Date deadline = null;
 		try {
 			deadline = formatter.parse(req.getParameter("deadline"));
@@ -57,9 +58,10 @@ public class CreateProject extends HttpServlet {
 		}
 		
 		int status = Integer.valueOf(req.getParameter("status"));
+		String members = req.getParameter("members");
 		
-		ArrayList<String> users = new ArrayList<String> ();
-		users.add(owner);
+		String[] ms = members.split(",");
+		ArrayList<String> users = new ArrayList<String>(Arrays.asList(ms));
 		
 		Project proj = new Project();
 		proj.setDeadline(deadline);
